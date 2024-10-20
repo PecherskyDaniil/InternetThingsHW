@@ -5,8 +5,8 @@ responses={'d':7,#led off
             'u':6,#led on
             'p':1}#1023,zerofill to leftside
 
-port_led="COM6"
-port_photo="COM5"
+port_led="COM5"
+port_photo="COM6"
 connection_led=serial.Serial(port_led,timeout=1)
 connection_photo=serial.Serial(port_photo,timeout=1)
 
@@ -35,7 +35,7 @@ while True:
     #else:
     #    photo_val=0
     print(photo_val)
-    if (photo_val>700):
+    if (photo_val<300):
         resp=send_command('u',responses['u'],connection_led)
         #print(resp)
     else:
