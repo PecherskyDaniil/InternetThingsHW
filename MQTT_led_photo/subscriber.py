@@ -27,7 +27,7 @@ responses={'d':7,
             'p':1}
 
 port_led="COM5"
-pub_id="1045"
+pub_id="" # подставьте свой pub_id
 h = hashlib.new('sha256')
 mac = get_mac()
 h.update(str(mac).encode())
