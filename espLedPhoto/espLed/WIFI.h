@@ -36,6 +36,7 @@ void StartCLIMode() {
 }
 
 void WIFI_init(bool mode_ap) {
+  
     if (mode_ap) {
       StartAPMode();
       ip = WiFi.softAPIP().toString();
@@ -43,6 +44,7 @@ void WIFI_init(bool mode_ap) {
       StartCLIMode();
       ip = WiFi.localIP().toString();
     }
+    WiFi.setSleep(false);
     //Serial.println("IP address: ");
     //Serial.println(ip);  
 }

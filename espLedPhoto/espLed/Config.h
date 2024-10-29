@@ -12,7 +12,3 @@ char* mqtt_broker = "broker.emqx.io";
 const int mqtt_port = 1883;
 
 const int led = 2;
-
-char* topicval="pech/esp8266/val";
-char* topicmax="pech/esp8266/max";
-char* topicmin="pech/esp8266/min";

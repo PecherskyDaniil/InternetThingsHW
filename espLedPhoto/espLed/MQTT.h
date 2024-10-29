@@ -3,32 +3,47 @@
 PubSubClient mqtt_cli(wifiClient);
 int maxv=0;
 int minv=0;
-void callback(char *topic, byte *payload, unsigned int length) {
-    Serial.print("Message arrived in topic: ");
-    Serial.println(topic);
-    Serial.print("Message:");
-    int val=0;
-    for (int i = 0; i < length; i++) {
-      val=val*10+((int)payload[i] - (int)'0');
-    }
-    Serial.println(val);
-    if (strcmp(topic,topicmin)==0){
+char val='0';
+String topicval="";
+String topicmin="";
+String topicmax="";
+void change_led_state(char* topic,int val){
+  if (strcmp(topic,topicmin.c_str())==0){
       minv=val;
-    }else if (strcmp(topic,topicmax)==0){
+    }else if (strcmp(topic,topicmax.c_str())==0){
       maxv=val;
-    }else if (strcmp(topic,topicval)==0){
+    }else if (strcmp(topic,topicval.c_str())==0){
       if (val>(minv + maxv) / 2){
         digitalWrite(led,LOW);
       }else{
         digitalWrite(led,HIGH);
       }
     }
-    Serial.println();
-    Serial.println("-----------------------");
+}
+void callback(char *topic, byte *payload, unsigned int length) {
+    //Serial.print("Message arrived in topic: ");
+    //Serial.println(topic);
+    //Serial.print("Message:");
+    //int val=0;
+    //for (int i = 0; i < length; i++) {
+    //  val=val*10+((int)payload[i] - (int)'0');
+    //}
+    val=(char) payload[0];
+    if (val=='u'){
+      digitalWrite(led,LOW);
+    }else if (val=='d'){
+      digitalWrite(led,HIGH);
+    }
+    
+    Serial.println(val);
+    //change_led_state(topic,val);
+    //Serial.println("-----------------------");
 }
 
-void MQTT_init(){
-
+void MQTT_init(String tval){
+  topicval=tval;
+  //topicmin=tmin;
+  //topicmax=tmax;
   mqtt_cli.setServer(mqtt_broker, mqtt_port);
   mqtt_cli.setCallback(callback);
   while (!mqtt_cli.connected()) {
