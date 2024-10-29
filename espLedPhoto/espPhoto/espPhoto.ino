@@ -16,6 +16,7 @@ int minval = 10000;
 int maxval = 0;
 void loop() {
   int val = analogRead(PHOTO);
+  String comled = "u";
   Serial.println(val);
   if (minval > val){
     minval = val;
@@ -23,15 +24,11 @@ void loop() {
   if (maxval < val){
     maxval = val;
   }
-  char cstr[16];
-  itoa(val, cstr, 10);
-  mqtt_cli.publish("pech/esp8266/val", cstr);
-  char minstr[16];
-  itoa(minval, minstr, 10);
-  mqtt_cli.publish("pech/esp8266/min", minstr);
-  char maxstr[16];
-  itoa(maxval, maxstr, 10);
-  mqtt_cli.publish("pech/esp8266/max", maxstr);
-  delay(1000);
+  if (val>((minval+maxval)/2)){
+    comled="d";
+  }
+
+  mqtt_cli.publish("pech/esp8266/com", comled.c_str());
+  delay(500);
 
 }
