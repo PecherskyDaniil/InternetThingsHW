@@ -38,6 +38,5 @@ while (True):
             dec+=1
     
     time.sleep(0.1)
-    print(time.time())
 client.disconnect()
 client.loop_stop()
