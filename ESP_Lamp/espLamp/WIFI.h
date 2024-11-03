@@ -27,18 +27,20 @@ bool StartAPMode() {
 }
 
 bool StartCLIMode() {
+  wifiMulti.cleanAPlist();
   wifiMulti.addAP(ssidCLI.c_str(), passwordCLI.c_str());
   //it is possible to add more networks to connect
   int ctries=0;
-  while(wifiMulti.run() != WL_CONNECTED && ctries<3) {
+  wifiMulti.run();
+  while(WiFi.status() != WL_CONNECTED && ctries<2) {
       ctries+=1;
       Serial.println("Not connected");
       delay(100);
   }
-  WiFi.softAPdisconnect(true);
-  if (ctries>=3){
+  if (ctries>=2){
     return false;
   }else{
+    WiFi.softAPdisconnect(true);
     return true;
   }
 }

@@ -19,3 +19,9 @@ String readStringFromEEPROM(int addrOffset)
   data[newStrLen] = '\0'; // !!! NOTE !!! Remove the space between the slash "/" and "0" (I've added a space because otherwise there is a display bug)
   return String(data);
 }
+void clearEEPROM()
+{
+  for (int i = 0; i < 200; i++){
+    EEPROM.write(i,0);
+  }
+}

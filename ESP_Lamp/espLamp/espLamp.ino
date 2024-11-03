@@ -27,7 +27,10 @@ void loop(void){
       mqtt_cli.subscribe("/pech/esplamp/1",0);
       constat=true;
     }else{
+      Serial.println("Clered eeprom");
       changeMode("APmode");
+      clearEEPROM();
+      EEPROM.commit();
       ssidCLI = "";
       passwordCLI = "";
       WIFI_init(true);
