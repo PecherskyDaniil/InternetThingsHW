@@ -3,22 +3,31 @@
 #include "Server.h"
 #include "MQTT.h"
 
+
 bool constat=false;
 void setup(void){
   Serial.begin(115200);
+  EEPROM.begin(100);
   pinMode(led, OUTPUT);
   WIFI_init(true);
   server_init();
+  ssidCLI=readStringFromEEPROM(0);
+  passwordCLI=readStringFromEEPROM(ssidCLI.length()+1);
+  Serial.println("eeprom_id: "+ssidCLI);
+  Serial.println("eeprom_pass: "+passwordCLI);
+  changeMode("APmode");
 }
 
 void loop(void){
-  
+  Indicator(indstate);
   if (ssidCLI.length()!=0 && passwordCLI.length()!=0 && !constat){
     if (WIFI_init(false)){
+      changeMode("CLImode");
       MQTT_init("/pech/esplamp/stream");
-      mqtt_cli.subscribe("/pech/esplamp/hello",0);
+      mqtt_cli.subscribe("/pech/esplamp/1",0);
       constat=true;
     }else{
+      changeMode("APmode");
       ssidCLI = "";
       passwordCLI = "";
       WIFI_init(true);
@@ -28,6 +37,8 @@ void loop(void){
     server.handleClient();
   }
   if (WiFi.status() != WL_CONNECTED && constat){
+      changeMode("APmode");
+      ledstate=0;
       ssidCLI = "";
       passwordCLI = "";
       WIFI_init(true);

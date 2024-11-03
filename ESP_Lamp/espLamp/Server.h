@@ -1,6 +1,8 @@
 #include <ESP8266WebServer.h>
-
+#include "EEPROM.h"
 ESP8266WebServer server(80);    
+
+
 
 void handleRoot() {                         
   server.send(200, 
@@ -24,8 +26,13 @@ void handleLogin() {
     message += server.arg(i) + "\n";              //Get the value of the parameter
 
   } 
+  EEPROM.begin(100);
   ssidCLI=server.arg("wifi_name");
+  Serial.println("Writed "+ssidCLI);
   passwordCLI=server.arg("wifi_password");
+  writeStringToEEPROM(0,ssidCLI);
+  writeStringToEEPROM(ssidCLI.length()+1,passwordCLI);
+  EEPROM.commit();
   server.send(200, "text/plain", message);       //Response to the HTTP request
 }
 
