@@ -22,7 +22,7 @@ bool StartAPMode() {
   WiFi.softAPConfig(apIP, apIP, IPAddress(255, 255, 255, 0));
   WiFi.softAP(ssidAP, passwordAP.c_str());
   Serial.println("");
-  Serial.println("WiFi up in AP mode with name: "+ ssidAP + " " + id());
+  Serial.println("WiFi up in AP mode with name: "+ ssidAP);
   return true;
 }
 

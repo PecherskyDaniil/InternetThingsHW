@@ -1,4 +1,4 @@
-String ssidAP = "PD_WIFI"; // имя контроллера и точки доступа
+String ssidAP = "PECH_ESP_WIFI"; // имя контроллера и точки доступа
 String passwordAP = "123456789"; // пароль точки доступа
 
 //char* ssidCLI = "YOUR_SSID"; // имя контроллера и точки доступа

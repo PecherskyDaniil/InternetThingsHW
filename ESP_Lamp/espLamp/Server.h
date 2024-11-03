@@ -7,7 +7,7 @@ ESP8266WebServer server(80);
 void handleRoot() {                         
   server.send(200, 
               "text/html", 
-              "<form action=\"/login\" method=\"POST\"><input type=\"text\" name=\"wifi_name\"/><br/><input type=\"password\" name=\"wifi_password\"/><br/><input style='font-size=50px' type=\"submit\"></form>");
+              "<div><form style=\"width:fit-content;margin-left: auto; margin-right:auto;margin-top:30px;\" action=\"/login\" method=\"POST\">WifiName <input type=\"text\" name=\"wifi_name\"/><br/>Password <input type=\"password\" name=\"wifi_password\"/><br/><input style='font-size=50px' type=\"submit\"></form></div>");
 }
 
 void handleLED() {                          
@@ -16,16 +16,7 @@ void handleLED() {
   server.send(303);
 }
 void handleLogin() {                          
-  String message = "Number of args received:";
-  message += server.args();            //Get number of parameters
-  message += "\n";                            //Add a new line
-  
-  for (int i = 0; i < server.args(); i++) {
-    message += "Arg nº" + (String)i + " –> ";   //Include the current iteration value
-    message += server.argName(i) + ": ";     //Get the name of the parameter
-    message += server.arg(i) + "\n";              //Get the value of the parameter
-
-  } 
+  String message = "Data was recieved";
   EEPROM.begin(100);
   ssidCLI=server.arg("wifi_name");
   Serial.println("Writed "+ssidCLI);
