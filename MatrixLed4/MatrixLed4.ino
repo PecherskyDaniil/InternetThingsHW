@@ -41,29 +41,29 @@ void setup() {
 
 }
 byte states[12]= {
-  0b00000000,
-  0b00001100,
-  0b00001001,
-  0b00001010,
-  0b00000101,
-  0b00000110,
-  0b00001000,
-  0b00001110,
-  0b00000100,
-  0b00001101,
-  0b10100101,
-  0b10010110
+  0b11111111,
+  0b11111111,
+  0b11111111,
+  0b11111111,
+  0b11111111,
+  0b11111111,
+  0b11111111,
+  0b11111111,
+  0b11111111,
+  0b11111111,
+  0b11111111,
+  0b11111111
 };
 int statenum=0;
 long statetime=millis();
 void loop() {
-  if (millis()-statetime>2000){
-    statetime=millis();
-    statenum++;
-  }
-  if (statenum>11){
-    statenum=0;
-  }
-  PWMstates(states[statenum]);
+  //if (millis()-statetime>2000){
+  //  statetime=millis();
+  //  statenum++;
+  //}
+  //if (statenum>11){
+  //  statenum=0;
+  //}
+  PWMstates(states);
   
 }
