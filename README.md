@@ -6,6 +6,9 @@
 5. [Задание про использование MQTT](#MQTT)
 6. [Задание про esp8266, фоторезистор и светодиод](#espLedPhoto)
 7. [Задание про espLamp](#espLamp)
+8. [Задание про светодиодную матрицу 2x2](#MatrixLed4)
+9. [Задание про светодиодную матрицу 8x8](#led_matrix8x8)
+10. [Задание про светодиодную матрицу 8x8 с применением регистров](#led_matrix8x8_registers)
 
 
 # Описание
@@ -169,7 +172,7 @@ https://disk.yandex.ru/i/MjievQNJMNe0FA
 Видео демонстрации работы скетча и схемы доступно по ссылке:
 [https://disk.yandex.ru/i/ZZB8zIuABicP0Q](https://disk.yandex.ru/i/ZZB8zIuABicP0Q)
 
-# led_matrix8x8
+# led_matrix8x8_registers
 ### Суть работы
 >Подключить светодиодную матрицу 8x8
 
