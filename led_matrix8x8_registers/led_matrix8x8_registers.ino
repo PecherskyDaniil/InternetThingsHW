@@ -20,22 +20,25 @@ int changetime;
 int cadr;
 void setup() {
   // put your setup code here, to run once:
-  pinMode(R1,OUTPUT);
-  pinMode(R2,OUTPUT);
-  pinMode(R3,OUTPUT);
-  pinMode(R4,OUTPUT);
-  pinMode(R5,OUTPUT);
-  pinMode(R6,OUTPUT);
-  pinMode(R7,OUTPUT);
-  pinMode(R8,OUTPUT);
-  pinMode(C1,OUTPUT);
-  pinMode(C2,OUTPUT);
-  pinMode(C3,OUTPUT);
-  pinMode(C4,OUTPUT);
-  pinMode(C5,OUTPUT);
-  pinMode(C6,OUTPUT);
-  pinMode(C7,OUTPUT);
-  pinMode(C8,OUTPUT);
+  cli();
+  TCCR1A = 0;
+  TCCR1B = 0;
+  TCNT1 = 0;
+  OCR1A = 1; // Value to compare with
+  TCCR1B |= (1 << WGM12);
+  // for 256 prescaler
+  TCCR1B = TCCR1B | (1 << CS12); //bitSet(TCCR1B, CS12);  
+  // for 1024 prescaler
+  //TCCR1B = TCCR1B | ((1 << CS12) | (1 << CS10)); 
+  // timer overflow interrupt
+  TIMSK1 |= (1 << OCIE1A);
+  PORTB = PORTB & B000000;
+  PORTD = PORTD & B00000000;
+  PORTC = PORTC & B00000;
+  sei();
+  DDRD=B11111111;
+  DDRB=B111111;
+  DDRC=B11111;
   curstate=1;
   changetime=millis();
   cadr=millis();
@@ -72,8 +75,21 @@ void PWMstates(byte* bstates){
     curstate+=1;
   }
 }
+ISR(TIMER1_COMPA_vect) {
+  PWMstates(states);
+  if (millis()-cadr>100){
+    for (int i = 0; i <= 7; i++) { 
+      if (states[i]>=128){
+        states[i]=((states[i]-128)*2)+1;
+      }else{
+        states[i]=states[i]*2;
+      }
+    }
+    cadr=millis();
+  }
+}
 void loop() {
   // put your main code here, to run repeatedly:
-  PWMstates(states);
+  //PWMstates(states);
   
 }
