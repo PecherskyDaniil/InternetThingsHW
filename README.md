@@ -27,7 +27,7 @@
 
 ### Видео демонстрация
 Видео демонстрации доступно по ссылке ниже:\
-https://disk.yandex.ru/i/X6cswIxhiJo6qw
+[https://disk.yandex.ru/i/X6cswIxhiJo6qw](https://disk.yandex.ru/i/X6cswIxhiJo6qw)
 # Детектор источника света
 ### Суть работы
 >Детектор направления источника освещенности, например окна.
@@ -60,7 +60,7 @@ https://disk.yandex.ru/i/MjievQNJMNe0FA
 
 ### Видео демонстрация
 Видео демонстрации работы скетча и схемы доступно по ссылке:\
-https://disk.yandex.ru/i/bKdXRWkYG_4Ryg
+[https://disk.yandex.ru/i/bKdXRWkYG_4Ryg](https://disk.yandex.ru/i/bKdXRWkYG_4Ryg)
 
 # MQTT
 ### Суть работы
@@ -87,7 +87,7 @@ https://disk.yandex.ru/i/bKdXRWkYG_4Ryg
 
 ### Видео демонстрация
 Видео демонстрации работы скетча и схемы доступно по ссылке:\
-https://disk.yandex.ru/i/mg7Io_f2WVdvkQ
+[https://disk.yandex.ru/i/mg7Io_f2WVdvkQ](https://disk.yandex.ru/i/mg7Io_f2WVdvkQ)
 
 # espLedPhoto
 ### Суть работы
@@ -100,7 +100,7 @@ https://disk.yandex.ru/i/mg7Io_f2WVdvkQ
 При запуске скетча укажите в Serial топик, куда отправляются данные с фоторезистора. (по умолчанию pech/esp8266/com)
 ### Видео демонстрация
 Видео демонстрации работы скетча и схемы доступно по ссылке:\
-https://disk.yandex.ru/i/BKAiWwv8_NrFKg
+[https://disk.yandex.ru/i/BKAiWwv8_NrFKg](https://disk.yandex.ru/i/BKAiWwv8_NrFKg)
 
 # espLamp
 ### Суть работы
@@ -139,3 +139,52 @@ https://disk.yandex.ru/i/BKAiWwv8_NrFKg
 ### Видео демонстрация
 Видео демонстрации работы скетча и схемы доступно по ссылке:\
 [https://disk.yandex.ru/i/BKAiWwv8_NrFKg](https://disk.yandex.ru/i/E2bRhscnr4oUpA)
+
+# MatrixLed4
+### Суть работы
+>Собрать светодиодную матрицу 2x2
+
+>Реализовать таблицу состояний и переключение между ними
+
+### Схема подключения
+![image](https://github.com/user-attachments/assets/678316f9-fc02-4864-b04e-feb8639be652)
+
+### Скетч
+Скетч с таблицей состояний находится в папке MatrixLed4
+
+### Видео демонстрация
+Видео демонстрации работы скетча и схемы доступно по ссылке:
+[https://disk.yandex.ru/i/IsGPbSsqf3Nz1A](https://disk.yandex.ru/i/IsGPbSsqf3Nz1A)
+
+# led_matrix8x8
+### Суть работы
+>Подключить светодиодную матрицу 8x8
+
+>Написать программу для управления светодиодами матрицы
+
+### Скетч
+Скетч для управления матрицей находится в папке led_matrix8x8
+
+### Видео демонстрация
+Видео демонстрации работы скетча и схемы доступно по ссылке:
+[https://disk.yandex.ru/i/ZZB8zIuABicP0Q](https://disk.yandex.ru/i/ZZB8zIuABicP0Q)
+
+# led_matrix8x8
+### Суть работы
+>Подключить светодиодную матрицу 8x8
+
+>Написать программу для управления светодиодами матрицы при помощи регистров таймера и регистров портов Arduino UNO
+
+### Схема подключения
+![image](https://github.com/user-attachments/assets/8ce8d8eb-b547-41fc-b377-1aaa199ebae2)
+
+
+### Скетч
+Скетч для управления матрицей при помощи регистров находится в папке led_matrix8x8_registers
+
+### Видео демонстрация
+Видео демонстрации работы скетча и схемы доступно по ссылке:
+[https://disk.yandex.ru/i/YF3G_6FNn7pL_g](https://disk.yandex.ru/i/YF3G_6FNn7pL_g)
+
+
+
