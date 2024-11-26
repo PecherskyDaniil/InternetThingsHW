@@ -45,17 +45,16 @@ void setup() {
 }
 int pins[8]={R1,R2,R3,R4,R5,R6,R7,R8};
 byte states[8]= {
-  0b00011000,
-  0b00111100,
-  0b01111110,
   0b11111111,
   0b11111111,
-  0b01111110,
-  0b00111100,
-  0b00011000
+  0b11111111,
+  0b11111111,
+  0b11111111,
+  0b11111111,
+  0b11111111,
+  0b11111111
 };
 void PWMstates(byte* bstates){
-  if (millis()-changetime>1){
     int dstate=(pow(2,1+curstate)+1)*(curstate<7)*(bstates[curstate-1]>0);
     int bstate=(pow(2,curstate-7))*(curstate>6)*(bstates[curstate-1]>0);
     int addb=B00111100-(bstates[curstate-1] & B00001111)*4;
@@ -67,26 +66,13 @@ void PWMstates(byte* bstates){
     PORTD=PORTD | dstate;
     PORTB=PORTB | bstate;
     PORTC=PORTC | cstate;
-    
-    changetime=millis();
     if (curstate==8){
       curstate=0;
     }
     curstate+=1;
-  }
 }
 ISR(TIMER1_COMPA_vect) {
   PWMstates(states);
-  if (millis()-cadr>100){
-    for (int i = 0; i <= 7; i++) { 
-      if (states[i]>=128){
-        states[i]=((states[i]-128)*2)+1;
-      }else{
-        states[i]=states[i]*2;
-      }
-    }
-    cadr=millis();
-  }
 }
 void loop() {
   // put your main code here, to run repeatedly:
