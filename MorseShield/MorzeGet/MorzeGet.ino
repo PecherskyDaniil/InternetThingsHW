@@ -137,7 +137,7 @@ void loop() {
       gotmessage=false;
     }
   }
-  if (millis()-changetime>TU*12 && lc && changetime!=-1){
+  if (millis()-changetime>TU*8 && lc && changetime!=-1){
     istranslated=true;
   }
   if (istranslated && lc){
