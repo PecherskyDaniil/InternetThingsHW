@@ -6,7 +6,7 @@ import numpy as np
 plt.style.use('ggplot')
 responses = {'i': 1,
              'u':1}  # 0 -> 1023 zero fill to leftside
-port = "COM5" # "COM4" or similar for windows
+port = "COM4" # "COM4" or similar for windows
 # "COM4" or similar for windows
 connection = serial.Serial(port, timeout=1) # baudrate=9600
 def get_d(cmd:str,
@@ -66,7 +66,7 @@ def calibration(connection,responses):
     u_all=np.array(u_all)
     i_all=np.array(i_all)
     #plt.scatter(u_all,i_all)
-    pv = np.poly1d(np.polyfit(u_all[u_all<21],i_all[u_all<21],3))
+    pv = np.poly1d(np.polyfit(u_all[u_all<21],i_all[u_all<21],4))
     xp=np.linspace(0, 21, 100)
     xpl=pv(xp)
     _ = plt.plot(u_all[u_all<21],i_all[u_all<21], '.', xp, xpl, '-')
@@ -77,4 +77,8 @@ def calibration(connection,responses):
     irmin=i_all.min()
     return mn,pr,irmax,irmin
 mn,pr,irmax,irmin=calibration(connection,responses)
-print(mn,pr(irmax))
+while True:
+    i_val:str=get_d('i',responses['i'],connection)*4
+    cm=pr(i_val)
+    print(f"Значение инфракрасного датчика:{i_val}, Расстояние:{cm} см")
+
