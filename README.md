@@ -16,6 +16,7 @@
 1. [Дребезг кнопки](#DREBEZG)
 2. [Матрица кнопок](#ButtonMatrix)
 3. [Калибровка инфрокрасного датчика](#RangeCalibration)
+4. [H-мост](#Hbridge)
 # Первый Семестр 3 курса
 
 # Описание
@@ -238,10 +239,20 @@ https://disk.yandex.ru/i/MjievQNJMNe0FA
 ### Схема подключения
 ![image](https://github.com/user-attachments/assets/ee0fd7f1-0751-472f-9c2d-58034a383b51)
 
+# Hbridge
+### Суть работы
+>Создать схему подключение мотора так чтобы можно было управлять как скоростью так и направлением вращения. Написать функцию для управления мотором. В функцию должно передаваться направление и скорость. Используйте эту функцию в loop чтобы продемонстрировать разные режимы работы мотора.
+>Задание можно выполнить в симуляторе tinkercad. В репозитории должна быть ссылка на вашу симуляцию. Код нужно продублировать в репозитории.
+
+
+### Схема подключения
+![image](https://github.com/user-attachments/assets/9cacc18a-ab14-40ba-a368-19ea9b482439)
+
+
 
 ### Скетч
-Скетч для прошивки микроконтроллера Arduino и код питона лежат в папке RangeCalibration репозитория.
+Скетч для прошивки микроконтроллера Arduino и код питона лежат в папке Hbridge репозитория.
 
-### Видео демонстрация
-Видео демонстрации работы скетча и схемы доступно по ссылке:
-[https://disk.yandex.ru/i/PPxEP0sbHsEtfw](https://disk.yandex.ru/i/PPxEP0sbHsEtfw)
+### Схема в Tinkercad
+Демонстрации работы скетча и схемы в Tinkercad доступно по ссылке:
+[https://www.tinkercad.com/things/cGq73s1uTVA-h-bridge?sharecode=krwKtOFoHliGyfQ3akJvIMGMAOZaS6Lw3utMukpRzBc](https://www.tinkercad.com/things/cGq73s1uTVA-h-bridge?sharecode=krwKtOFoHliGyfQ3akJvIMGMAOZaS6Lw3utMukpRzBc)
