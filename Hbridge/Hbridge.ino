@@ -16,5 +16,12 @@ void MotorControl(bool dir,int speed){
 }
 void loop()
 {
-  MotorControl(0,10);
+  MotorControl(0,50);
+  delay(2000);
+  MotorControl(1,100);
+  delay(2000);
+  MotorControl(0,255);
+  delay(2000);
+  MotorControl(1,50);
+  delay(2000);
 }
