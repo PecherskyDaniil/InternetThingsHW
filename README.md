@@ -285,7 +285,8 @@ https://disk.yandex.ru/i/MjievQNJMNe0FA
 
 
 ### Схема подключения
-![image](https://github.com/user-attachments/assets/c438466c-f5f6-4424-908b-e0b390ee7c0f)
+![image](https://github.com/user-attachments/assets/484e5841-4141-4f64-9673-a33b89ce50a2)
+
 
 
 ### Скетч
